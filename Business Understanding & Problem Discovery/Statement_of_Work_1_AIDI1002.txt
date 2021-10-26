@@ -1,0 +1,88 @@
+﻿                                           Statement of Work (SOW1): AIDI-1002-01 - AI ALGORITHMS 1
+
+
+                           Project Title : Real Estate Price Prediction using Regression 
+
+
+Group Members : 
+Oluwaseun Ogunnubi (100811706), 
+Chiraz Marrekchi (100837601), 
+Keith Frank (100838622) 
+*****************************************************************************
+
+
+-----------------------             
+Problem Statement
+-----------------------
+
+The general and standardized real estate characteristics are often listed separately from the offer price and the general description. 
+Since these characteristics are listed separately and in a structured way, they can easily be  compared across the entire range of potential homes. Since each house  has its own special characteristics, such as a certain view or type of sink, home sellers can summarize all the important properties of the house in the description.
+Potential buyers can take into account all the specified characteristics of the property, but  an automated blind comparison of all the variables is almost impossible due to the great variety. This  also applies in the other direction: home sellers have to make an estimate of the value based on its characteristics in comparison to the current price market of similar houses, a variety of features make challenging reasonable market appreciation prices. 
+And thus making a wise decision on whether to buy or sell a house can be quite complex, as it’s challenging to predict its real value in the future, will the price go up, or not ? We don’t know. However, a prediction model can help us make an estimate, thus making a decision to the best we can. 
+
+-------------------------------
+Proposed System
+-------------------------------
+
+Nowadays, e-education and e-learning are heavily influenced. Everything is changing from manual to automated systems. The goal of this project is to predict house prices to minimize customer problems. This procedure consists of the client contacting a real estate agent to manage their investments and propose suitable properties for their investments. However, this method is risky as the broker can predict incorrect properties and thus lead to the loss of clients' investments. The manual method currently in use on the market is outdated and carries a high level of risk. To overcome this flaw, an updated and automated system is necessary. Data mining algorithms can be used to help investors invest in suitable properties based on their stated requirements. Furthermore, the new system will be cost effective and time efficient. This will have simple operations.
+
+-------------------------------------------------------------------------------------
+Data requirements and related data sources to assist in real estate price prediction:
+-------------------------------------------------------------------------------------
+
+To help us determine an accurate house prediction price, the following data parameters would be used: 
+
+
+* Date: Date house is sold
+* Price: Cost is forecast target
+* Bedrooms: Number of Rooms/House
+* Bathrooms: Number of washrooms/House
+* Sqft_Living: area of the home
+* Sqft_Lot: area of the lot
+* Floors: Aggregate floors (levels) in house
+* Waterfront: House which has a view to a waterfront
+* View: Has been seen
+* Condition: How great the condition is ( By and large )
+* Grade: grade given to the lodging unit, in view of Province evaluating framework
+* Sqft_Above: area of house separated from basement
+* Sqft_Basement: area of the basement
+* Yr_Built: Assembled Year
+* Yr_Renovated: Year when house was remodeled
+* Postal code
+* Lat: Latitude coordinate
+* Long: Longitude coordinate
+* Sqft_Living: Living space region
+* Sqft_Lot: lotSize region
+
+
+For this project, we will exclusively use free data for our sample sourced from kaggle website: https://www.kaggle.com/quantbruce/real-estate-price-prediction?ref=hackernoon.com.
+ This data will give us a base file for our perceptions with sales cost as our dependent variable.
+
+
+------------------------------------------------------------------------------------
+Data assumptions, limitations and constraints required to move forward with the data
+------------------------------------------------------------------------------------
+
+Finding quality data is the initial phase in building an accurate model and maybe the most significant. Despite the fact that we've all heard the expression "garbage in, garbage out", there is no ideal dataset. This is fine as long as we can comfortably accept the sample data is illustrative of the entire populace.
+
+Some of the factors that may affect an accurate valuation output include missing data, inaccurate pricing, confidentiality of data, unpredictable events like floods, natural disasters, unforeseen events such as increasing criminality rate etc. which can decrease property value, building a new commercial mall near the property, on the other hand, may drive the property value up. Also, the geographical relevance of the data needs to be put into consideration, the greater the limitation we put on the geographic region we audit, by and large the more modest the quantity of equivalent properties stay for examination. The quantity of comparable properties is frequently in the single digits in many cases.
+
+----------------------------------------------
+Test Process for quality of work guarantees
+----------------------------------------------
+
+We start by dividing the data into a Training, Validation and Testing data:
+ 
+*Training data will be used to train our model, while Validation data helps with tuning and selecting the right hyperparameters (such as lambda, the learning rate etc ..) in order to obtain a fit model. 
+
+
+*The validation process can be implemented via different algorithms, k-Fold Cross Validation, Nested Cross Validation etc.. 
+
+
+*We later test the performance of our model in a real-life environment using Testing data.
+
+----------------------------------------
+Comments
+----------------------------------------
+
+Github Link: https://github.com/ChirazMarrekchi/AIDI1002_AI-Algorithm-1/tree/main/Business%20Understanding%20&%20Problem%20Discovery
