@@ -1,0 +1,239 @@
+
+                Statement of Work (SOW2): AIDI-1002-01 - AI ALGORITHMS 1
+
+
+                           Project Title : Real Estate Price Prediction using Regression 
+
+
+Group Members : 
+Oluwaseun Ogunnubi (100811706), 
+Chiraz Marrekchi (100837601), 
+Keith Frank (100838622) 
+*****************************************************************************
+
+#import the useful libraries.
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+%matplotlib inline
+from termcolor import colored as cl # text customization
+
+columns = [ 'No.','Transaction_date','House_age','Distance_to_MRT_station','No_of_Convenience_Store', 'Latitude', 'Longitude', 'House_price_per_unit_area']
+# Read the data set of "Real Estate" in data.
+data= pd.read_csv('Real estate.csv',names=columns,sep=',', skiprows=1, )
+data.pop('No.')
+
+# Printing the data
+data
+
+type(data)
+
+##clean up data
+
+data.dropna()
+
+ #Checking the missing values
+data.isnull().sum()
+print(cl(data.isnull().sum(), attrs = ['bold']))
+
+# *No need to scale data, as data we have is of age, price, number of convience stores , prices etc and cannot be scaled *
+
+# **We are using one data source so we won't harmonize our data **
+
+
+data.info()
+
+list(data.columns)
+
+import matplotlib.pyplot as plt
+data.hist(bins=50, figsize=(20,15))
+plt.show()
+
+
+#EDA 
+import sweetviz as sv
+
+
+estate_report = sv.analyze(data)
+
+estate_report.show_html()
+
+
+X1 = data["Transaction_date"]
+X2 = data["House_age"] 
+X3 = data["Distance_to_MRT_station"] 
+X4 = data["No_of_Convenience_Store"]
+X5 = data["Latitude"] 
+X6 = data["Longitude"]
+
+Y = data["House_price_per_unit_area"]
+
+#Performing data Analysis 
+
+import statistics as st
+
+#get mean of houses age
+House_age_mean = st.mean(X2)
+House_age_mean
+
+#get mean of houses price
+House_price_mean = st.mean(Y)
+House_price_mean
+
+#get median of number of convenience stores 
+median_number_of_Stores = st.median(X4)
+median_number_of_Stores
+
+
+import matplotlib.pyplot as plt
+
+
+price_age = pd.DataFrame({"Price" : Y, "age" : X2})
+#study correlation between house price and house age 
+
+
+price_age_corr = np.corrcoef(Y, X2)
+price_age_corr
+
+
+
+
+import seaborn as sns
+corrmat = price_age.corr()
+  
+f, ax = plt.subplots(figsize =(9, 8))
+sns.heatmap(corrmat, ax = ax, cmap ="YlGnBu", linewidths = 0.1)
+
+rho = np.corrcoef(price_age)
+
+fig, ax = plt.subplots(nrows=1,  figsize=(12, 3))
+
+ax.scatter(Y, X2)
+ax.title.set_text('Price Vs House Age ' )
+ax.set(xlabel='Price',ylabel='House Age')
+fig.subplots_adjust(wspace=.4)    
+plt.show()
+
+#study correclation between house price and number of convenience stores
+
+price_stores = pd.DataFrame({"Price" : Y, "stores" : X4})
+
+price_stores_corr = np.corrcoef(Y, X4)
+price_stores_corr
+
+corrmat = price_stores.corr()
+  
+f, ax = plt.subplots(figsize =(9, 8))
+sns.heatmap(corrmat, ax = ax, cmap ="YlGnBu", linewidths = 0.1)
+
+rho = np.corrcoef(price_stores)
+
+fig, ax = plt.subplots(nrows=1,  figsize=(12, 3))
+
+ax.scatter(Y, X2)
+ax.title.set_text('Price VS Number of convenience stores ' )
+ax.set(xlabel='Price',ylabel='Number of convenience stores')
+fig.subplots_adjust(wspace=.4)    
+plt.show()
+
+#House Price/unit Area
+Y.describe()
+
+#House_Age
+X2.describe()
+
+#Distance_to_MRT_station"
+X3.describe()
+
+#Hypothesis testing 
+from scipy.stats import ttest_1samp
+
+#checking whether avg house age is less than or equal to 10 years 
+
+#H0 : House age is less than or equal to 10 years
+#H1 : House age is less than 10 years 
+
+tset, pval = ttest_1samp(X2,10)
+
+
+print("p-values",pval)
+if pval < 0.05:    # alpha value is 0.05 or 5%
+   print(" we are rejecting null hypothesis")
+else:
+  print("we are accepting null hypothesis")
+
+#plot the scatter plot of No_of_Convenience_Store and House_price_per_unit_area variable in data
+data.plot.scatter(x="No_of_Convenience_Store",y="House_price_per_unit_area")
+plt.show()
+print("_______________________________________________________________")
+print("  ")
+#plot the scatter plot of Distance_to_MRT_station and House_price_per_unit_area variable in data
+data.plot.scatter(x="Distance_to_MRT_station",y="House_price_per_unit_area")
+plt.show()
+
+#plot the pair plot of House_age and House_price_per_unit_area in data dataframe.
+sns.pairplot(data = data, vars=['House_age','House_price_per_unit_area'])
+plt.show()
+
+#  Heatmap
+
+sns.heatmap(data.corr(), annot = True, cmap = 'magma')
+
+plt.savefig('heatmap.png')
+plt.show()
+
+# Creating a matrix using 'Distance_to_MRT_station','No_of_Convenience_Store','House_price_per_unit_area' as rows and columns
+data_corr = data[['Distance_to_MRT_station','No_of_Convenience_Store','House_price_per_unit_area']].corr()
+print(data_corr)
+print("  ")
+#plot the correlation matrix of 'Distance_to_MRT_station','No_of_Convenience_Store','House_price_per_unit_area' in data dataframe.
+sns.heatmap(data[['Distance_to_MRT_station','No_of_Convenience_Store','House_price_per_unit_area']].corr(), annot=True, cmap = 'Reds')
+plt.show()
+
+-------------------------------------------------------------------------------------------------------------------------
+# Benefits of Feature Engineering for Optimal Model Output
+In AI, your model is just ever as great as the information you train it on. As such a critical extent of your work
+ought to be centered around making a dataset that is enhanced to boost the data density of your information.
+Feature engineering and selection are the strategies utilized for accomplishing this objective. 
+Feature engineering is the process by which data is utilized to build variables and features that can be utilized
+to prepare a predictive model. Designing and choosing the right elements for a model will significantly work on 
+its predictive power, also it will likewise offer the adaptability to utilize less perplexing models that are 
+quicker to run and more effortlessly comprehended.
+A few of the the benefits of feature engineering are listed below:
+1) We can feature and concentrate key data, which assists calculations with accomplishing great outcomes.  
+2) When we comprehend the depth of feature engineering of a particular information, we can get others' area skill.  
+3) Feature engineering is the most common way of changing crude information into highlights that better address 
+the hidden issue to the predictive models, bringing about better model accuracy on unseen data.  
+4) Improves performance of AI models. 
+5) Decomposing or Dividing Features: One type of feature engineering is to decompose crude attributes into features
+that will be simpler to decipher patterns from. For instance, decomposing dates or timestamp factors into a variety
+of constituents might permit models to find and take advantage of connections. 
+6) Data Improvement: Data improvement is the most common way of making new features by presenting information from
+outer sources. Remotely grouped information is significant in prediction achievement, there are plenty of open data
+sets that will as a rule make effective features. 
+7) Feature Changes: Feature changes can incorporate amassing or joining attributes to make new features. Helpful
+and relevant features will rely upon the problem at hand, however averages, sums and ratios over various groupings
+can more readily open patterns to a model. 
+8) Automated feature engineering: Designing features manually can be extremely tedious and requires a decent 
+comprehension of the fundamental information, structures in the information, the issue you are attempting to 
+address and how best to address the information to have the ideal impact. Manual feature engineering is problem 
+specific and can't be applied to another dataset or issue.
+
+#Key Candidate Features between Synthesized and Real Data for our Model Input
+
+Synthesized Data                                       |       Real Data
+1) Safe data-sharing and effective data stewardship	|  Unsafe information sharing
+2) Data privacy and quality assessment	                |  No information security
+3) Transparent controls for data privacy	            |  Not straightforward controls for information security
+4) Seamless integration with systems	                |  Inconsistent reconciliation with frameworks
+5) Accuracy at your control	                        |  Accuracy is not easily controlled
+6) Extended support for different data types	        |  No support for different data types
+7) Automation	                                        |  No computerization
+8) Synthesize datasets without size limitations	    |  You can’t blend datasets without size restrictions
+
+
+-----------------------------------------------------------------------------------------------------------------
+
+
+GitHub Link : https://github.com/ChirazMarrekchi/AIDI1002_AI-Algorithm-1/tree/main/Data%20Acquisition%20%26%20Understanding
