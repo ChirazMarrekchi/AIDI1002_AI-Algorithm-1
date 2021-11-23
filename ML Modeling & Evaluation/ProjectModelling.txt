@@ -1,0 +1,104 @@
+Modelling: AIDI-1002-01 - AI ALGORITHMS 1
+
+
+                           Project Title : Real Estate Price Prediction using Regression 
+
+
+Group Members : 
+Oluwaseun Ogunnubi (100811706), 
+Chiraz Marrekchi (100837601), 
+Keith Frank (100838622) 
+
+*****************************************************************************
+
+
+1- Evaluate learning algorithms and  frameworks to help solve the problem statement.
+
+Our goal is to predict the price of the unit based on variables such as the age of the house, the distance to the nearest subway station, and the number of grocery stores nearby. 
+
+Models that can be used to solve our problem: 
+
+ (1) Linear Regression 
+
+Linear Regression is also known as Ordinary Least Squares. This is one of the most common linear regressions in machine learning. The linear regression representation is y = a * x + b. Where x is a vector of independent variables. In this case, the age of the house, the distance to the nearest MRT station, the number of grocery stores, the latitude and longitude values. y is the predicted value, which is the house / unit price. 
+Linear regression aims to minimize the loss function: sum (predicted output-actual output)2
+
+ (2) Ridge regression
+Ridge regression minimizes the loss incurred in linear regression. Instead of OLS (ordinary least squares), the output value is predicted by the ridge estimator of ridge regression. You can also reduce the complexity of your ML model by using ridge regression. Ridge regression is expressed as: y = Xβ + ϵ, where "y" is the N * 1 vector that defines the observations of the dependent data points / variables, and "X" is the regression matrix. `β` is an N * 1 vector composed of regression coefficients, and` ϵ` is a vector (N * 1) . The loss function to minimize is: sum(y - Xβ)2 + ϵ2
+
+ (3) Neural Network Regression 
+When making predictions / assumptions, you need to know the power of neural networks. Each node in a neural network has its own activation function that defines the node's output based on a set of inputs. You can manipulate the final activation function to turn the neural network into a regression model. You can use `Keras`, the appropriate Python library for building neural networks in ML.
+
+ (4) Random Forest
+Random forest is also a widely used algorithm for non-linear regression in machine learning. Random forest uses several decision trees to predict output. Random data points are selected from the specified dataset (for example, k data points are selected) and used through this algorithm to create a decision tree. Next, several decision trees are modeled that predict the value of each new data point. Since there are several decision trees, some output values ​​are predicted using the Random Forest algorithm. To calculate the final output, you need to find the average of all the predicted values ​​for the new data points. The only downside to using the Random Forest algorithm is that it requires more input in relation to training. This is due to the large number of decision trees that are mapped under this algorithm as it requires more computational power.
+
+ (5) KNN Model
+KNN (K-nearest neighbor method) follows a simple implementation approach to nonlinear regression in machine learning. KNN assumes that the new data point is similar to the existing data point. The new data point is compared to the existing category and placed under the assignable category. The k-nearest neighbor mean is used as input to this algorithm. The neighborhood of the ANN model is given special weights that define its contribution to the mean.
+
+
+2- Assess and select appropriate software tools to successfully work with the data and model(s).
+
+We are using Google Colab because we can process the data and the model together. In addition, Google Colab supports most machine learning libraries such as Keras, PyTorch and OpenCV. Compare scores and results for these models:  linear regression, ANN model, random forest
+We will import multiple libraries to do the job work such as  NumPy, ScikitLearn etc ..
+
+3-Discuss model(s) architecture and software pipeline needed to successfully create the proposed solution.
+
+Our main goal is to build a system like this: 
+▸ Reduce waiting time. 
+▸ Integrated, but loosely coupled with other parts of the system (data storage, reports, graphical user interface, etc.). scalable. 
+▸ Is message driven. i.e.. The system communicates with the user 
+▸ Provides efficient computation related to workload management. 
+▸ Self-heals with fault tolerance. NS. Fault management; 
+▸ Supports batch and real-time processing. The Machine Learning Pipeline is a way to systematize and automate the workflows needed to build machine learning models. The machine learning pipeline consists of multiple consecutive steps that span everything from data extraction and preprocessing to model training and deployment.
+
+
+To create a solution: 
+
+1- Defining Problem
+2- Data preparation (collect the data, analyze and investigate) 
+3- Choose the Model
+4- Model Training through chunks of code
+5- Testing and retraining until obtaining a perfect score while making sure we don’t underfit or overfit
+6- Evaluate the Model
+7- Model deployment 
+8- Performance Monitoring and Enhancement 
+
+
+4-Assess dataset assumptions, limitations, and constraints in order to develop effective models.
+
+Data Assumptions: 
+
+The first phase of data exploration seeks to understand the various variables in the dataset, rather than going directly into statistics and graphs.
+
+Here are the observation:-
+It has data of  house age and house price per unit area.
+It also shows the distance to the nearest MRT station from the house.
+It also tells the number of convenience stores near the house in data.
+The data has longitude and the latitude of the house.
+
+Limitation:
+
+There is a surprising amount of research in the home price forecasting department, but many have come up with real solutions. There is little evidence that a company has established a working house price forecast. Today, there are few digital solutions for such a large market, and most of the methods people and businesses use are:
+Buyer / Customer:
+       When people first think of buying a home / real estate, they tend to go online and try to study trends and other related things. People do this to find a home that has everything they need. In doing so, these people write down the prices associated with these homes. However, the average person does not have detailed knowledge and accurate information about what the actual price should be. This can lead to incorrect information, as they believe that the price quoted on the internet is genuine.3
+
+The second thing that comes to mind when looking for a property is to contact various realtors. The problem with this is that these agents only have to pay a small portion of the amount to find a home and set a price tag for you. In most cases, this price is blindly believed by people because there is no other option. Agents and sellers may make secret transactions and sell overpriced homes without the customer's knowledge.
+
+Seller / Agency:
+ When a person is considering selling his or her property, they compare their property to hundreds or thousands of other assets that are publicly available around the world.We are  comparing multiple properties to determine a price can be very time consuming and carries the potential risk of incorrect pricing.
+
+Large real estate companies have a variety of products that need to be sold and need to hire people to handle each of those products. Again, this is based on predicting human price tags, so there is room for human error. In addition, these assigned people need to be paid. But by letting your computer do the work by calculating large numbers, you can save a lot of time, money, and accuracy that humans can't.
+
+
+References : 
+
+https://www.jigsawacademy.com/popular-regression-algorithms-ml/#Linear-Regression
+
+https://towardsdatascience.com/architecting-a-machine-learning-pipeline-a847f094d1c7 
+
+https://www.ijert.org/real-estate-price-prediction
+
+***************************************************************************************************************************
+
+GitHub Link : https://github.com/ChirazMarrekchi/AIDI1002_AI-Algorithm-1/tree/main/Data%20Acquisition%20%26%20Understanding
+
