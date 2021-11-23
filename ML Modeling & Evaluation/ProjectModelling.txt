@@ -100,5 +100,5 @@ https://www.ijert.org/real-estate-price-prediction
 
 ***************************************************************************************************************************
 
-GitHub Link : https://github.com/ChirazMarrekchi/AIDI1002_AI-Algorithm-1/tree/main/Data%20Acquisition%20%26%20Understanding
+GitHub Link : https://github.com/ChirazMarrekchi/AIDI1002_AI-Algorithm-1/tree/main/ML%20Modeling%20%26%20Evaluation
 
