@@ -1,0 +1,15 @@
+Project Prototyping: AIDI-1002-01 - AI ALGORITHMS 1
+
+
+                           Project Title : Real Estate Price Prediction using Regression 
+
+
+Group Members : 
+Oluwaseun Ogunnubi (100811706), 
+Chiraz Marrekchi (100837601), 
+Keith Frank (100838622) 
+
+*****************************************************************************
+
+
+GitHub Link : https://github.com/ChirazMarrekchi/AIDI1002_AI-Algorithm-1/tree/main/ML%20Modeling%20%26%20Evaluation
